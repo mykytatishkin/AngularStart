@@ -1,8 +1,70 @@
-<h3>Main page {{title}}</h3>
-<h4>{{getColor()}}</h4>
-  <div [style.color]="getColor()">
-    This is a test div
+<div class="container">
+  <h3>Interpolation with {{title}}</h3>
+  <hr>
+  <p>Color1 = {{color1}}</p>
+  <p>Color from function = {{getColor()}}</p>
+  <hr>
+
+  <h3>Property binding - data Transfer from class to HTML</h3>
+  <div [innerHTML]="color1" [style.color]="getColor()"></div>
+  <hr>
+  <input type="text" [value]="message"/>
+  <br>
+  <img [src]="image_url" alt="picture">
+  <img bind-src="image_url" alt="picture">
+
+  <h3>Event binding - Event binding</h3>
+  <hr>
+  <input type="text" (input)="changeMessage($event)"/> <input type="text" on-input="changeMessage($event)"/> &nbsp; &nbsp; {{message}}
+  <br/>
+  <input type="text" #inp1 (input)="color1=inp1.value">
+
+  <h3>Two ways binding - data transfer from html page to class and back from class to the page</h3>
+  <hr/>
+  <div>
+    <input type="text" #inp2 [style.backgroundColor]="color1" (input)="getColorByName(inp2.value)">
   </div>
-<div [innerHTML]=color1> 
+
+  <h3>Directives</h3>
+  <hr/>
+  <div *ngIf="checkCondition()">
+      <p [style.backgroundColor]="color1">I like this color!</p>
+  </div>
+  <table width="75%" class="table table-striped">
+    <thead>
+      <th>Id</th><td>Title</td><th>Author</th><th>Price</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{book.id}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.price}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Form</h3>
+  <hr/>
+  <form>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="id"/>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Title"/>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Author"/>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Price"/>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-success" placeholder="Add"/>
+      </div>
+    </div>
+  
+  </form>
+  
 
 </div>
+
