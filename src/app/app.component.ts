@@ -49,10 +49,10 @@ export class AppComponent implements OnInit {
     return this.color1=="violet";
   }
 
-  addBook(id: number, title: string, author:string, price:number): Book{
-    var book1 = new Book(id, title, author, price);
-    console.log(book1);
-    return book1;
+  addBook(id: string, title: string, author:string, price:string): void{
+    var numId = parseInt(id);
+    var numPrice = parseInt(id);
+    this.books.push(new Book(numId, title, author, numPrice));
   }
 }
 
