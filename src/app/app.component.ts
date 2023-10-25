@@ -48,6 +48,12 @@ export class AppComponent implements OnInit {
   checkCondition(): boolean{
     return this.color1=="violet";
   }
+
+  addBook(id: number, title: string, author:string, price:number): Book{
+    var book1 = new Book(id, title, author, price);
+    console.log(book1);
+    return book1;
+  }
 }
 
 

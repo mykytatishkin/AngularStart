@@ -48,18 +48,18 @@
   <hr/>
   <form>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="id"/>
+      <input name="idInput" type="text" class="form-control" placeholder="id"/>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Title"/>
+      <input name="titleInput" type="text" class="form-control" placeholder="Title"/>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Author"/>
+      <input name="authorInput" type="text" class="form-control" placeholder="Author"/>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Price"/>
+        <input name="priceInput" type="text" class="form-control" placeholder="Price"/>
       </div>
       <div class="form-group">
-        <input type="submit" class="btn btn-success" placeholder="Add"/>
+        <input type="submit" class="btn btn-success" (input)="addBook(idInput.value)" placeholder="Add"/>
       </div>
     </div>
   
